@@ -3,14 +3,14 @@
 }
 
 <div class="row">
-    <div class="col-md-3" style="border-radius: 26px;border: 1px solid #dea3a3;   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);">
-                <p style="text-align: center; margin: 5px;font-size: 25px;font-weight: 600;"><font style="color:#525151;"> Book category</font></p>
+    <div class="col-md-3" style="border-radius: 26px; border: 1px solid #dea3a3; background-image: linear-gradient(to top, #fed6e3 10%, #af7b0b 90%);">
+                <p style="text-align: center; margin: 5px;font-size: 25px;font-weight: 600;"><font style="color:#a8edea;"> Book category</font></p>
                 @Html.Action("ShowCategory", "Home")
     </div>
     <div style="width:71%" class="col-md-9">
         @*featured book*@
         <div row carousel-holder">
-            <div class="col-md-12">
+            <div class="col-md-12" >
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -18,9 +18,9 @@
                         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                     </ol>
 
-                    <div class="carousel-inner">
+                    <div class="carousel-inner" style="border-radius: 30px 30px 30px 30px;" >
                         <div class="item active">
-                            <a href="/Book/Details/1">
+                            <a href="/Book/Details/2">
                                 <img src="~/images/combo1.jpg" alt="slideImage1" />
                             </a>
                         </div>
@@ -48,7 +48,7 @@
         <hr />
         @*best selling book*@
         <div class="row">
-            <div style="position: absolute;width: 800px;height: 70px;left: 19px;top: 443px;background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);border-radius: 50px ;line-height: 2.1;">
+            <div style="position: absolute; width: 800px; height: 70px; left: 19px; top: 443px; background-image: linear-gradient(to top, #fed6e3 10%, #af7b0b 90%); border-radius: 50px; line-height: 2.1;">
                 <div class="row">
                     <div class="col-lg-1" style="margin: 1rem 0rem 0rem 5rem">
                         <img style="width: 46px;height: 46px;left: 50px;top: 484px;" src="~/images/topBook.png"></img>
