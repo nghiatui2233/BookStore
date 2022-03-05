@@ -45,8 +45,8 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="/" style="font-size: 25px; color: #FFFFFF;"><i class="fa fa-home" aria-hidden="true"></i> FPTBookstore</a>
-                        
-                        
+
+
                     </li>
 
                     <li>
@@ -56,16 +56,15 @@
                 <div class="col-sm-3 col-md-3">
                     @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post, new { @class = "navbar-form", @role = "search" }))
                     {
-                        <div class="input-group">
-                            @*<input style="width: 370px;" type="text" class="form-control" placeholder="Search books..." name="search">*@
-                            @Html.TextBox("txtSearch", "", htmlAttributes: new { @class = "form-control", @placeholder = "Search books...", @style = "width: 370px;background: #FAFAFA;border-radius: 40px;" })
-                            <span class="input-group-btn">
-                                <button style="background: #e658588c; border-radius: 40px;" class="btn btn-default" type="submit">
-                                    <span style="color:white">Search</span>
-                                </button>
-                            </span>
-                        </div>
-                    }
+        <div class="input-group">
+            @*<input style="width: 370px;" type="text" class="form-control" placeholder="Search books..." name="search">*@
+            @Html.TextBox("txtSearch", "", htmlAttributes: new { @class = "form-control", @placeholder = "Search books...", @style = "width: 370px;background: #FAFAFA;border-radius: 40px;" })
+            <span class="input-group-btn">
+                <button style="background: #e658588c; border-radius: 40px;" class="btn btn-default" type="submit">
+                    <span style="color:white">Search</span>
+                </button>
+            </span>
+        </div>}
                 </div>
                 @*Menu right*@
                 @Html.Action("Login", "User")
@@ -84,20 +83,16 @@
         <hr>
         <div class="container">
             <footer>
-              
-               
-
-
             </footer>
 
-        </div>  
+        </div>
         <!-- Footer -->
         <footer>
             <div style="background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);border-radius: 39px 39px 0px 0px; " class="footer" id="footer">
                 <div class="container">
-                    
+
                     <div class="row">
-                        
+
                         <div class="col-lg-3  col-md-2 col-sm-4 col-xs-6">
                             <h3 style="color:#515252;"> Help </h3>
                             <ul>
@@ -121,57 +116,32 @@
                         </div>
 
                         <div class="col-xs-3">
-                            <div @*class="col-lg-3  col-md-3 col-sm-6 col-xs-12 "*@>
+                            <div>
                                 <h3 style="color:#515252"> Follow Us </h3>
-                                @*<ul>
-                                    <li>
-                                        <div class="input-append newsletter-box text-center">
-                                            <input type="text" class="form-control" placeholder="Email..." />
-                                            <button class="btn-warning btn-block btn-md" type="button"> Register <i class="fa fa-long-arrow-right"> </i> </button>
-                                        </div>
-                                    </li>
-                                </ul*@
-                                @*<ul class="social">
-                                    <li> <a href="https://goo.gl/fpbZzR"> <i class="fa fa-facebook-official" aria-hidden="true"></i> </a> </li>
-                                    <li> <a href="https://goo.gl/mfjtLE"> <i class="fa fa-youtube-play" aria-hidden="true"></i> </a> </li>
-                                </ul>*@
                             </div>
                             <ul class="footer-social ">
                                 <li>
-                                    <a rel="nofollow" href="#" title="Youtube" target="_blank" style="color:#515252;font-size:1.6rem"><i class="fa fa-youtube-play"></i> Youtube</a>
+                                    <a rel="nofollow" href="https://www.youtube.com/" title="Youtube" target="_blank" style="color:#515252;font-size:1.6rem"><i class="fa fa-youtube-play"></i> Youtube</a>
                                 </li>
                                 <li>
-                                    <a rel="nofollow" href="#" title="Facebook" target="_blank" style="color:#515252;font-size:1.6rem"><i class="fa fa-facebook-square"></i> Facebook</a>
+                                    <a rel="nofollow" href="https://www.facebook.com/nghia.huu.50364" title="Facebook" target="_blank" style="color:#515252;font-size:1.6rem"><i class="fa fa-facebook-square"></i> Facebook</a>
                                 </li>
 
                             </ul>
-                            <div class="footer-apps">
-                                @*<p class="intro hidden-lg hidden-md"></p>*@
-                                <a stype="height: 35px" rel="nofollow" href="https://play.google.com/apps" target="_blank">
-                                    <img style="height: 35px" alt="Get it on Google Play" class="lazy" src="https://vcdn.tikicdn.com/assets/img/google-play.svg?v=1" style="display: inline; background-image: none;">
-                                </a>
-                                <a rel="nofollow" href="http://appstore.vn/home/" target="_blank">
-                                    <img style="height: 35px" class="lazy" src="https://vcdn.tikicdn.com/assets/img/app-store.svg?v=1" style="display: inline; background-image: none;">
-                            </div>
                         </div>
-                    </div>                  
+                        <div>
+                            <img src="~/images/combo2.jpg" alt="sildeImage2" />
+                        </div>
+                    </div>
                     <div class="container" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; position: relative;">
                         <div style="color: white; position:absolute;color:#515252;font-size:1.6rem">
                             <p>&copy; @DateTime.Now.Year - FPTBookstore</p>
-                        </div>
-                        <div class="block" style="margin-left:710px;">
-                            <a href="#" rel="noreferrer" aria-label=""><img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/bo-cong-thuong-2.png" width="36" alt=""></a><a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=21201" rel="noreferrer" aria-label=""><img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/bo-cong-thuong.svg" width="120" alt=""></a>
                         </div>
                     </div>
                     <!--/.row-->
                 </div>
                 <!--/.container-->
             </div>
-            <!--/.footer-->
-            @*<div style="background-color: #087BB0" class="footer-bottom">
-
-            </div>*@
-            <!--/.footer-bottom-->
         </footer>
     </div>
     <!-- /.container -->
