@@ -48,7 +48,7 @@
                     <img src="/images/@item.Image" width="105" height="140" />
                 </td>
                 <td>
-                    <span>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Contact") USD</span>
+                    <span>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Contact") $</span>
                 </td>
                 <td>
                     @String.Format("{0:dd/MM/yyyy}", item.DateUpdate)
