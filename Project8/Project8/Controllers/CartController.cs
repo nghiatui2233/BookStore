@@ -182,17 +182,7 @@ namespace FPTBookstore.Controllers
         public ActionResult Payment()
         {
             //check login
-            if (Session["User"] == null || Session["User"].ToString() == "")
-            {
-                return RedirectToAction("LoginPage", "User");
-            }
 
-            if (UserController.customerstatic.Status == false)
-            {
-                return RedirectToAction("ActivationNotice", "User");
-            }
-            else
-            {
                 var cart = Session[CartSession];
                 var list = new List<CartModel>();
                 var sl = 0;
@@ -206,7 +196,6 @@ namespace FPTBookstore.Controllers
                 ViewBag.Quantity = sl;
                 ViewBag.Total = total;
                 return View(list);
-            }
         }
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         [HttpPost]
