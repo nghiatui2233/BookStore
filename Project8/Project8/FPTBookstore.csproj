@@ -1130,7 +1130,6 @@
     <Content Include="Views\User\ActivationNotice.cshtml" />
     <Content Include="Views\User\CheckActivationNotification.cshtml" />
     <Content Include="Views\Cart\TrackingOder.cshtml" />
-    <Content Include="Views\Cart\TrackingOderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
