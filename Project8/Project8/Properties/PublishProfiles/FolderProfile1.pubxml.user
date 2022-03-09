@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\New folder (2)</_PublishTargetUrl>
-    <History>True|2022-03-09T02:50:38.5830693Z;True|2022-03-09T09:40:22.7631382+07:00;True|2022-03-09T09:30:25.6230232+07:00;</History>
+    <History>True|2022-03-09T10:38:48.4778132Z;True|2022-03-09T17:18:38.3944168+07:00;True|2022-03-09T09:50:38.5830693+07:00;True|2022-03-09T09:40:22.7631382+07:00;True|2022-03-09T09:30:25.6230232+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -39,7 +39,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/03/2022 15:02:35</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Home/Index.cshtml">
-      <publishTime>03/07/2022 08:12:31</publishTime>
+      <publishTime>03/09/2022 16:44:47</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Home/Order.cshtml">
       <publishTime>03/06/2022 15:00:58</publishTime>
@@ -141,10 +141,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/03/2022 15:02:35</publishTime>
     </File>
     <File Include="bin/Project8.dll">
-      <publishTime>03/09/2022 11:45:22</publishTime>
+      <publishTime>03/09/2022 17:38:47</publishTime>
     </File>
     <File Include="bin/Project8.pdb">
-      <publishTime>03/09/2022 11:45:22</publishTime>
+      <publishTime>03/09/2022 17:38:47</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>03/03/2022 15:02:34</publishTime>
@@ -2832,10 +2832,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/05/2022 16:50:11</publishTime>
     </File>
     <File Include="Views/Cart/Index.cshtml">
-      <publishTime>03/09/2022 11:45:00</publishTime>
+      <publishTime>03/09/2022 17:38:23</publishTime>
     </File>
     <File Include="Views/Cart/Payment.cshtml">
-      <publishTime>03/03/2022 16:51:16</publishTime>
+      <publishTime>03/09/2022 17:03:37</publishTime>
     </File>
     <File Include="Views/Cart/Success.cshtml">
       <publishTime>03/03/2022 15:02:34</publishTime>
@@ -2844,7 +2844,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 10:44:06</publishTime>
     </File>
     <File Include="Views/Cart/UserInfo.cshtml">
-      <publishTime>03/05/2022 16:30:41</publishTime>
+      <publishTime>03/09/2022 16:58:36</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>03/03/2022 15:02:34</publishTime>

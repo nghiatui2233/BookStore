@@ -35,7 +35,7 @@
                     </td>
                     <td data-th="Price">@item.book.Price.GetValueOrDefault(0).ToString("N0") $</td>
                     <td data-th="Quantity">
-                        <input type="number" class="txtQuantity" data-id="@item.book.BookID" value="@item.Quantity">
+                        <input data-id="@item.book.BookID" value="@item.Quantity">
                     </td>
                     <td data-th="Subtotal" class="text-center">@((item.book.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0")) $</td>
                     <td class="actions" data-th="">

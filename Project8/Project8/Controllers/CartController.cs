@@ -79,8 +79,7 @@ namespace FPTBookstore.Controllers
                 status = true
             });
         }
-
-
+      
         //GET : /Cart/AddItem/?id=?&quantity=1 : add product to cart
         public ActionResult AddItem(int id, int quantity)
         {
@@ -157,7 +156,17 @@ namespace FPTBookstore.Controllers
         public ActionResult Payment()
         {
             //check login
+            if (Session["User"] == null || Session["User"].ToString() == "")
+            {
+                return RedirectToAction("LoginPage", "User");
+            }
 
+            if (UserController.customerstatic.Status == false)
+            {
+                return RedirectToAction("ActivationNotice", "User");
+            }
+            else
+            {
                 var cart = Session[CartSession];
                 var list = new List<CartModel>();
                 var sl = 0;
@@ -171,10 +180,11 @@ namespace FPTBookstore.Controllers
                 ViewBag.Quantity = sl;
                 ViewBag.Total = total;
                 return View(list);
+            }
         }
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         [HttpPost]
-        public ActionResult Payment(int CustomerID,FormCollection f)
+        public ActionResult Payment(int CustomerID, FormCollection f)
         {
             var PMethod = int.Parse(f["PaymentMethod"]);
             var order = new Order();
@@ -182,7 +192,7 @@ namespace FPTBookstore.Controllers
             order.DateEnd = DateTime.Now.AddDays(3);
             order.OrderStatus = true; //has received the goods
             order.CustomerID = CustomerID;
-            
+
             try
             {
                 if (PMethod == 1)
@@ -203,7 +213,7 @@ namespace FPTBookstore.Controllers
                         result2.Insert(orderDetail);
 
                         total = cart.Sum(x => x.Total);
-                        
+
                     }
 
                     Session[CartSession] = null;
@@ -228,7 +238,7 @@ namespace FPTBookstore.Controllers
                         total = cart.Sum(x => x.Total);
                     }
                     Session[CartSession] = null;
-                    
+
 
                 }
             }
@@ -241,7 +251,6 @@ namespace FPTBookstore.Controllers
 
         }
 
-        
         public ActionResult Success()
         {
             return View();
@@ -263,8 +272,8 @@ namespace FPTBookstore.Controllers
             //{
             db.Configuration.ProxyCreationEnabled = false;
             var Order = db.Orders.ToList();
-            
-            return Json(new {data= Order }
+
+            return Json(new { data = Order }
                 , JsonRequestBehavior.AllowGet);
             //}
             //else
