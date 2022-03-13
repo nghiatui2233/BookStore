@@ -37,7 +37,7 @@
         [StringLength(50)]
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number")]
-        [Required(ErrorMessage = "Phone Number Required!")]
+        [Required(ErrorMessage = "Phone Number cannot be left blank")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string Phone { get; set; }
 

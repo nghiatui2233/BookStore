@@ -77,7 +77,7 @@ namespace FPTBookstore.Models.Process
         /// <returns>int</returns>
         public int CheckUsername(string username,string password)
         {
-            var result = db.Customers.FirstOrDefault(x => x.Account == username);
+            var result = db.Customers.SingleOrDefault(x => x.Account == username);
             if(result == null)
             {
                 return 0;

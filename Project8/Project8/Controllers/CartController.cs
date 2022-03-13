@@ -85,7 +85,6 @@ namespace FPTBookstore.Controllers
         {
             //create a json object
             var jsonCart = new JavaScriptSerializer().Deserialize<List<CartModel>>(cartModel);
-
             //cast type from session
             var sessionCart = (List<CartModel>)Session[CartSession];
 
@@ -105,7 +104,7 @@ namespace FPTBookstore.Controllers
                 status = true
             });
         }
-
+       
         //GET : /Cart/AddItem/?id=?&quantity=1 : add product to cart
         public ActionResult AddItem(int id, int quantity)
         {
