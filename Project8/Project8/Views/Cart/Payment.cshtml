@@ -38,13 +38,13 @@
                     <td data-th="Quantity">
                         <input type="number" style="border: none;" class="txtQuantity" readonly="readonly" data-id="@item.book.BookID" value="@item.Quantity">
                     </td>
-                    <td data-th="Subtotal" class="text-center">@((item.book.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0")) USD</td>
+                    <td data-th="Subtotal" class="text-center">@((item.book.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0")) $</td>
                 </tr>
             }
         </tbody>
         <tfoot>
             <tr class="visible-xs">
-                <td class="text-center"><strong>Total: @String.Format("{0:0,0}", ViewBag.Total) USD</strong></td>
+                <td class="text-center"><strong>Total: @String.Format("{0:0,0}", ViewBag.Total) $</strong></td>
             </tr>
             <tr>
                 <td>

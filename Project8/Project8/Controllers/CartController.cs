@@ -79,7 +79,33 @@ namespace FPTBookstore.Controllers
                 status = true
             });
         }
-      
+
+        //Update cart
+        public JsonResult Update(string cartModel)
+        {
+            //create a json object
+            var jsonCart = new JavaScriptSerializer().Deserialize<List<CartModel>>(cartModel);
+
+            //cast type from session
+            var sessionCart = (List<CartModel>)Session[CartSession];
+
+            foreach (var item in sessionCart)
+            {
+                var jsonItem = jsonCart.FirstOrDefault(x => x.book.BookID == item.book.BookID);
+                if (jsonItem != null)
+                {
+                    item.Quantity = jsonItem.Quantity;
+                }
+            }
+            //update session
+            Session[CartSession] = sessionCart;
+
+            return Json(new
+            {
+                status = true
+            });
+        }
+
         //GET : /Cart/AddItem/?id=?&quantity=1 : add product to cart
         public ActionResult AddItem(int id, int quantity)
         {
@@ -184,7 +210,7 @@ namespace FPTBookstore.Controllers
         }
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         [HttpPost]
-        public ActionResult Payment(int CustomerID, FormCollection f)
+        public ActionResult Payment(int CustomerID,FormCollection f)
         {
             var PMethod = int.Parse(f["PaymentMethod"]);
             var order = new Order();
@@ -192,7 +218,7 @@ namespace FPTBookstore.Controllers
             order.DateEnd = DateTime.Now.AddDays(3);
             order.OrderStatus = true; //has received the goods
             order.CustomerID = CustomerID;
-
+            
             try
             {
                 if (PMethod == 1)
@@ -213,7 +239,7 @@ namespace FPTBookstore.Controllers
                         result2.Insert(orderDetail);
 
                         total = cart.Sum(x => x.Total);
-
+                        
                     }
 
                     Session[CartSession] = null;
@@ -238,7 +264,7 @@ namespace FPTBookstore.Controllers
                         total = cart.Sum(x => x.Total);
                     }
                     Session[CartSession] = null;
-
+                    
 
                 }
             }
@@ -251,6 +277,7 @@ namespace FPTBookstore.Controllers
 
         }
 
+       
         public ActionResult Success()
         {
             return View();
@@ -272,15 +299,10 @@ namespace FPTBookstore.Controllers
             //{
             db.Configuration.ProxyCreationEnabled = false;
             var Order = db.Orders.ToList();
-
-            return Json(new { data = Order }
+            
+            return Json(new {data= Order }
                 , JsonRequestBehavior.AllowGet);
-            //}
-            //else
-            //{
-            //    List<Order> Order = db.Orders.Where(p => p.CustomerID == UserController.customerstatic.CustomerID).ToList();
-            //    return Json(Order, JsonRequestBehavior.AllowGet);
-            //}
+      
         }
     }
 }

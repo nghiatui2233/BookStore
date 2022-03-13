@@ -71,7 +71,6 @@ namespace FPTBookstore.Areas.Admin.Controllers
                     var fileName = Path.GetFileName(fileUpload.FileName);
                     //pass file path and compile to /images
                     var path = Path.Combine(Server.MapPath("/images"), fileName);
-
                     //check image path exists?
                     if (System.IO.File.Exists(path))
                     {
@@ -81,12 +80,22 @@ namespace FPTBookstore.Areas.Admin.Controllers
                     {
                         fileUpload.SaveAs(path);
                     }
+                    
+                        
 
                     //execute the image link to the cover image link
                     book.Image = fileName;
+                    if (!string.Equals(fileName, ".jpg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(fileName, ".png", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(fileName, ".gif", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(fileName, ".jpeg", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ViewBag.Alert = "Error flie";
+                        return View();
+                    }
                     //do save to db
                     var result = new AdminProcess().InsertBook(book);
-                    if (result > 0)
+                    if (result > 0 )
                     {
                         ViewBag.Success = "Successfully added";
                         //delete state to add new
@@ -170,8 +179,15 @@ namespace FPTBookstore.Areas.Admin.Controllers
                     {
                         fileUpload.SaveAs(path);
                     }
-
                     book.Image = fileName;
+                    if (!string.Equals(fileName, ".jpg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(fileName, ".png", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(fileName, ".gif", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(fileName, ".jpeg", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ViewBag.Alert = "Error flie";
+                        return View(book);
+                    }
                     var result = new AdminProcess().UpdateBook(book);
                     if (result == 1)
                     {

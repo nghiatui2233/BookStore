@@ -53,13 +53,14 @@ namespace FPTBookstore.Controllers
                 {
                     kh.Account = model.Account;
                     kh.Password = model.Password;
+                    kh.ConfirmPassword = model.ConfirmPassword;
                     kh.CustomerName = model.CustomerName;
                     kh.Email = model.Email;
                     kh.Address = model.Address;
                     kh.Phone = model.Phone;
                     kh.DateOfBirth = model.DateOfBirth;
                     kh.DateCreate = DateTime.Now;
-                    kh.Status = false;
+                    kh.Status = true;
                     
                     var result = user.InsertUser(kh);
                     
@@ -240,13 +241,13 @@ namespace FPTBookstore.Controllers
                 else if (result == 0)
                 {
                     ModelState.AddModelError("", "Account does not exist.");
-                    //return RedirectToAction("LoginPage", "User");
+                    return RedirectToAction("LoginPage", "User");
                 }
                 //if you enter the wrong account or password
                 else if (result == -1)
                 {
                     ModelState.AddModelError("", "Incorrect account or password");
-                    //return RedirectToAction("LoginPage", "User");
+                    return RedirectToAction("LoginPage", "User");
                 }
             }
 
@@ -271,8 +272,8 @@ namespace FPTBookstore.Controllers
 
             if (ModelState.IsValid)
             {
-                //find account name
                 var result = db.Customers.SingleOrDefault(x => x.Account == model);
+
 
                 //return the corresponding data
                 return View(result);

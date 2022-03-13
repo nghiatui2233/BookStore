@@ -77,7 +77,7 @@ namespace FPTBookstore.Models.Process
         /// <returns>int</returns>
         public int CheckUsername(string username,string password)
         {
-            var result = db.Customers.SingleOrDefault(x => x.Account == username);
+            var result = db.Customers.FirstOrDefault(x => x.Account == username);
             if(result == null)
             {
                 return 0;
@@ -107,8 +107,10 @@ namespace FPTBookstore.Models.Process
                 kh.Address = entity.Address;
                 kh.Phone = entity.Phone;
                 kh.DateOfBirth = entity.DateOfBirth;
+                
+                db.Customers.Add(entity);
                 db.SaveChanges();
-                return 1;
+                return 0;
             }
             catch (Exception)
             {

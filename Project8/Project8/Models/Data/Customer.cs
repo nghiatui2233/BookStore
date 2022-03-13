@@ -24,10 +24,9 @@
         [Display(Name = "CustomerName")]
         public string CustomerName { get; set; }
 
-        [StringLength(50)]
-        [Required(ErrorMessage = "Email cannot be blank")]
-        [Display(Name = "Email")]
-        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Email can't be empty")]
+ 
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
 
         [StringLength(250)]
@@ -36,9 +35,10 @@
         public string Address { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Phone")]
-        [Required(ErrorMessage = "Phone number cannot be left blank")]
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone Number")]
+        [Required(ErrorMessage = "Phone Number Required!")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string Phone { get; set; }
 
         [Column(TypeName = "smalldatetime")]
@@ -57,6 +57,11 @@
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
+
 
         [Display(Name = "DateCreate")]
         [DataType(DataType.DateTime)]
