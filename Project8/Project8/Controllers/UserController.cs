@@ -63,16 +63,11 @@ namespace FPTBookstore.Controllers
                     kh.Status = true;
                     
                     var result = user.InsertUser(kh);
-                    
-                    var idUser = db.Customers.FirstOrDefault(n => n.Email == kh.Email && n.CustomerName == kh.CustomerName);
-                    BuildUserTemplate(idUser.CustomerID);
+
                     if (result > 0)
                     {
-                        //Session["User"] = result;
                         ModelState.Clear();
-                        //return Redirect("/Home/");
-                        //ModelState.AddModelError("", "Please Check Email Account Activation !");
-                        return RedirectToAction("CheckActivationNotification", "User");
+                        return RedirectToAction("Index", "Home");
                     }
                     else
                     {
@@ -85,86 +80,6 @@ namespace FPTBookstore.Controllers
             return View(model);
         }
 
-        public ActionResult Confirm(int khCustomerID)
-        {
-            ViewBag.CustomerID = khCustomerID;
-            return View();
-        }
-
-        public JsonResult ConfirmEmail(int khCustomerID)
-        {
-            Customer Data = db.Customers.Where(x => x.CustomerID == khCustomerID).FirstOrDefault();
-            Data.Status = true;
-            db.SaveChanges();
-            var msg = "Email Confirmed!";
-            Session["User"] = null;
-            return Json(msg, JsonRequestBehavior.AllowGet);
-        }
-        public void BuildUserTemplate(int khCustomerID)
-        {
-            string body =
-                System.IO.File.ReadAllText(HostingEnvironment.MapPath("~/EmailTemplate/") + "Text" + ".cshtml");
-            var inforKH = db.Customers.Where(x => x.CustomerID == khCustomerID).First();
-            var url = "https://FPTBookstore.cf/" + "User/Confirm?khCustomerID=" + khCustomerID;
-            body = body.Replace("@ViewBag.ConfirmationLink", url);
-            body = body.ToString();
-            BuildEmailTemplate("Account Created Successfully", body, inforKH.Email);
-
-        }
-
-        public void BuildEmailTemplate(string subjectText, string bodyText, string sendTo)
-        {
-            string from, to, bcc, cc, subject, body;
-            from = "FPTBookstore@gmail.com";
-            to = sendTo.Trim();
-            bcc = "";
-            cc = "";
-            subject = subjectText;
-            StringBuilder sb = new StringBuilder();
-            sb.Append(bodyText);
-            body = sb.ToString();
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress(from);
-            mail.To.Add(new MailAddress(to));
-            if (!string.IsNullOrEmpty(bcc))
-            {
-                mail.Bcc.Add(new MailAddress(bcc));
-            }
-
-            if (!string.IsNullOrEmpty(cc))
-            {
-                mail.CC.Add(new MailAddress(cc));
-            }
-            
-            mail.Subject = subject;
-            mail.Body = body;
-            mail.IsBodyHtml = true;
-            mail.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(body, new ContentType("text/html")));
-            SendEmail(mail);
-        }
-
-        public static void SendEmail(MailMessage mail)
-        {
-            SmtpClient client = new SmtpClient();
-            client.Host = "smtp.gmail.com";
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.UseDefaultCredentials = false;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.Credentials = new System.Net.NetworkCredential("webbansach17dtha3@gmail.com", "webbansach123");
-
-        }
-
-        public ActionResult ActivationNotice()
-        {
-            return View();
-        }
-        public ActionResult CheckActivationNotification()
-        {
-            return View();
-        }
-
-        //GET : /User/LoginPage : login page
 
         public ActionResult LoginPage()
         {
@@ -294,7 +209,7 @@ namespace FPTBookstore.Controllers
                 //do a test
                 if (result == 1)
                 {
-                    return RedirectToAction("EditUser");                  
+                    return RedirectToAction("EditUser", "User");
                 }
                 else
                 {

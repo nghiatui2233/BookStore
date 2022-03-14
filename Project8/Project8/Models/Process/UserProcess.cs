@@ -107,7 +107,6 @@ namespace FPTBookstore.Models.Process
                 kh.Address = entity.Address;
                 kh.Phone = entity.Phone;
                 kh.DateOfBirth = entity.DateOfBirth;
-                
                 db.Customers.Add(entity);
                 db.SaveChanges();
                 return 0;

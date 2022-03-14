@@ -44,15 +44,6 @@ namespace FPTBookstore.Controllers
 			return PartialView(result);
 		}
 
-		//GET : /Book/DidYouSee : display 3 books descending by date
-		//Parital View : DidYouSee
-		public ActionResult DidYouSee()
-		{
-			var result = new BookProcess().TakeBook(3);
-
-			return PartialView(result);
-		}
-
 		//GET : /Book/All : show all books in db
 		public ActionResult ShowAllBook(int? page)
 		{

@@ -58,7 +58,6 @@ C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\bin\System.Web.WebPag
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\bin\System.Web.WebPages.Razor.xml
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\bin\Antlr3.Runtime.pdb
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\bin\Newtonsoft.Json.xml
-C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\FPTBookstore.csproj.AssemblyReference.cache
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\FPTBookstore.csproj.CoreCompileInputs.cache
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\FPTBookstore.csproj.CopyComplete
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\Project8.dll

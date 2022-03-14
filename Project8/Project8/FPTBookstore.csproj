@@ -1129,7 +1129,6 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\LoginPage.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Book\DidYouSee.cshtml" />
     <Content Include="Views\Book\ShowAllBook.cshtml" />
     <Content Include="Views\Home\Regulation.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
