@@ -680,6 +680,7 @@
     <Content Include="images\icon_fb_2x.jpg" />
     <Content Include="images\icon_g_2x.jpg" />
     <Content Include="images\IT.jpg" />
+    <Content Include="images\login.jpg" />
     <Content Include="images\logo.jpg" />
     <Content Include="images\Marvel Encyclopedia.jpg" />
     <Content Include="images\Naruto.jpg" />
