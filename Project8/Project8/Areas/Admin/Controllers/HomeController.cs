@@ -36,7 +36,8 @@ namespace FPTBookstore.Areas.Admin.Controllers
             return View(model);
         }
 
-        //GET : Admin/Home/AddBook : Add new book page
+        //GET : Admin/Home/AddBook : Add new book page\
+        [HttpGet]
         public ActionResult AddBook()
         {
             //get the code that displays the name
@@ -120,7 +121,7 @@ namespace FPTBookstore.Areas.Admin.Controllers
 
             return View(book);
         }
-
+        [HttpGet]
         public ActionResult UpdateBook(int id)
         {
             //call the function to get the code
@@ -333,6 +334,7 @@ namespace FPTBookstore.Areas.Admin.Controllers
         }
 
         //GET : /Admin/Home/AddAuthor : add author page
+        [HttpGet]
         public ActionResult AddAuthor()
         {
             return View();
@@ -351,7 +353,7 @@ namespace FPTBookstore.Areas.Admin.Controllers
                 //initialize object tg
                 var tg = new Author();
 
-                //gán dữ liệu
+                //data assignment
                 tg.AuthorName = model.AuthorName;
                 tg.Hometown = model.Hometown;
                 tg.DateOfBirth = model.DateOfBirth;
@@ -436,6 +438,7 @@ namespace FPTBookstore.Areas.Admin.Controllers
         }
 
         //GET : /Admin/Home/AddPublish : publisher management page
+        [HttpGet]
         public ActionResult AddPublish()
         {
             return View();
@@ -605,6 +608,13 @@ namespace FPTBookstore.Areas.Admin.Controllers
             return View(result);
         }
 
+        [HttpDelete]
+        public ActionResult DeleteOrder(int id)
+        {
+            new AdminProcess().DeleteOrder(id);
+
+            return RedirectToAction("Order");
+        }
         #endregion
 
     }

@@ -482,5 +482,24 @@ namespace FPTBookstore.Models.Process
             }
         }
 
+        /// <summary>
+        /// order delete function
+        /// </summary>
+        /// <param name="id">int</param>
+        /// <returns>bool</returns>
+        public bool DeleteOrder(int id)
+        {
+            try
+            {
+                var order = db.Orders.Find(id);
+                db.Orders.Remove(order);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
