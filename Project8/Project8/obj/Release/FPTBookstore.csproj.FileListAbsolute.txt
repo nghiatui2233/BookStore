@@ -62,3 +62,4 @@ C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\FPTBookst
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\FPTBookstore.csproj.CopyComplete
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\Project8.dll
 C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\Project8.pdb
+C:\Users\Asus\Documents\GitHub\BookStore\Project8\Project8\obj\Release\FPTBookstore.csproj.AssemblyReference.cache

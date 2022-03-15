@@ -86,13 +86,14 @@ namespace FPTBookstore.Areas.Admin.Controllers
 
                     //execute the image link to the cover image link
                     book.Image = fileName;
-                    if (!string.Equals(fileName, ".jpg", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(fileName, ".png", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(fileName, ".gif", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(fileName, ".jpeg", StringComparison.OrdinalIgnoreCase))
+                    var postedFileExtension = Path.GetExtension(fileUpload.FileName);
+                    if (!string.Equals(postedFileExtension, ".jpg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(postedFileExtension, ".png", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(postedFileExtension, ".gif", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(postedFileExtension, ".jpeg", StringComparison.OrdinalIgnoreCase))
                     {
-                        ViewBag.Alert = "Error flie";
-                        return View();
+                        ViewBag.Alert = "This is not a picture of a book";
+                        return View(book);
                     }
                     //do save to db
                     var result = new AdminProcess().InsertBook(book);
@@ -181,12 +182,13 @@ namespace FPTBookstore.Areas.Admin.Controllers
                         fileUpload.SaveAs(path);
                     }
                     book.Image = fileName;
-                    if (!string.Equals(fileName, ".jpg", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(fileName, ".png", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(fileName, ".gif", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(fileName, ".jpeg", StringComparison.OrdinalIgnoreCase))
+                    var postedFileExtension = Path.GetExtension(fileUpload.FileName);
+                    if (!string.Equals(postedFileExtension, ".jpg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(postedFileExtension, ".png", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(postedFileExtension, ".gif", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(postedFileExtension, ".jpeg", StringComparison.OrdinalIgnoreCase))
                     {
-                        ViewBag.Alert = "Error flie";
+                        ViewBag.Alert = "This is not a picture of a book";
                         return View(book);
                     }
                     var result = new AdminProcess().UpdateBook(book);

@@ -109,7 +109,7 @@ namespace FPTBookstore.Models.Process
                 kh.DateOfBirth = entity.DateOfBirth;
                 db.Customers.Add(entity);
                 db.SaveChanges();
-                return 0;
+                return 1;
             }
             catch (Exception)
             {
